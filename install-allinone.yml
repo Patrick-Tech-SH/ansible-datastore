@@ -15,5 +15,5 @@
     - opsta.host_preparation
     - opsta.install_docker
     - opsta.docker_compose
-    - ansible-role-phpmyadmin
+    - ansible-phpmyadmin
   environment: "{{ proxy_env | default({}) }}"

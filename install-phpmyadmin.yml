@@ -3,8 +3,8 @@
   gather_facts: yes
   become: true
   vars_files:
-    - ./ansible-role-phpmyadmin/vars/main.yml
+    - ./ansible-phpmyadmin/vars/main.yml
   roles:
     - geerlingguy.apache-php-fpm
-    - ansible-role-phpmyadmin
+    - ansible-phpmyadmin
   environment: "{{ proxy_env | default({}) }}"

@@ -3,5 +3,5 @@
   gather_facts: yes
   become: true
   roles:
-    - ansible-role-mysql
+    - ansible-mysql
   environment: "{{ proxy_env | default({}) }}"
