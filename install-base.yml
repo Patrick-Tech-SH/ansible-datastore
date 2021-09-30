@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  roles:
+    - opsta.install_docker
+    - opsta.docker_compose
+  environment: "{{ proxy_env | default({}) }}"

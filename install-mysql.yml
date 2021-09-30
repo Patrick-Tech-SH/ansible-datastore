@@ -1,0 +1,7 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  roles:
+    - ansible-role-mysql
+  environment: "{{ proxy_env | default({}) }}"

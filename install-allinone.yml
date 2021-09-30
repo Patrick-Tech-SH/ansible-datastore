@@ -1,0 +1,19 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+  vars_files:
+    - ./ansible-role-phpmyadmin/vars/main.yml
+  pre_tasks:
+    - name: Configure apt-cacher-ng
+      raw: "echo 'Acquire::http::Proxy \"{{ host_preparation_apt_cacher_ng }}\";' >
+          /etc/apt/apt.conf.d/11proxy"
+      when: host_preparation_apt_cacher_ng is defined
+    - name: Install Python first
+      raw: python --version || python3 --version || (apt update && apt install -y --no-install-recommends python3)
+  roles:
+    - opsta.host_preparation
+    - opsta.install_docker
+    - opsta.docker_compose
+    - ansible-role-phpmyadmin
+  environment: "{{ proxy_env | default({}) }}"

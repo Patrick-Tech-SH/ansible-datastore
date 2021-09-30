@@ -1,0 +1,7 @@
+- src: opsta.host_preparation
+- src: opsta.install_docker
+- src: opsta.docker_compose
+- src: geerlingguy.apache-php-fpm
+- src: geerlingguy.apache
+- src: geerlingguy.php-mysql
+- src: geerlingguy.php
