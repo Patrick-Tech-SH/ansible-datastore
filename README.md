@@ -20,11 +20,17 @@ pip3 install -r ../requirements/python-requirements.txt
 ansible-galaxy install -f -n -r requirements/galaxy-role-requirement.yml
 ```
 
+## Install requirements collection
+```
+ansible-galaxy collection install -f -n -r requirements/galaxy-collection-requirement.yml
+```
+
 ## If phpmyadmin show code not GUI 
 ### Run this command 
 ```
 sudo a2enmod proxy_fcgi setenvif
-sudo a2enconf php7.0-fpm
+sudo add-apt-repository ppa:ondrej/php
+sudo a2enconf php7.4-fpm
 sudo service apache2 restart
 ```
 ref. : https://askubuntu.com/questions/861493/phpmyadmin-is-displaying-code-instead-of-page
